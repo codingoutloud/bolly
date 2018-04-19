@@ -12,11 +12,11 @@ def is_audio(file_name):
     audio_extensions = ('.mp3')
     return file_name.endswith(audio_extensions)
 
-def get_media():
+def get_media(downloads):
     "get list of media files in order based on file creation time"
-    files = glob.glob('%s/*.png' % data_root)
-    files.extend(glob.glob('%s/*.jpg' % data_root))
-    files.extend(glob.glob('%s/*.mp3' % data_root))
+    files = glob.glob('%s/*.png' % downloads)
+    files.extend(glob.glob('%s/*.jpg' % downloads))
+    files.extend(glob.glob('%s/*.mp3' % downloads))
     files.sort(key=os.path.getmtime)
     return files
 
@@ -28,7 +28,7 @@ else:
 
 print('* DATA ROOT = %s' % data_root)
 
-media_files = get_media()
+media_files = get_media('%s/downloads' % data_root)
 
 print(*media_files, sep='\n') #print('\n'.join(media_files))
 print('--------------------------')
