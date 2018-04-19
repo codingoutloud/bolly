@@ -33,7 +33,8 @@ media_files = get_media('%s/downloads' % data_root)
 print(*media_files, sep='\n') #print('\n'.join(media_files))
 print('--------------------------')
 
-clips = list()
+#clips = list()
+clips = []
 
 for media_file in media_files:
     if is_image(media_file):
