@@ -60,8 +60,9 @@ print('ABOUT TO CONCAT IMAGES')
 
 output_video_ext = 'mp4'
 output_video_path = '%s/uploads/bollyimages.%s' % (data_root, output_video_ext)
-image_clips = moviepy.editor.ImageSequenceClip(media_files, fps=4)
+image_clips = moviepy.editor.ImageSequenceClip(media_files)
 image_clips.write_videofile(output_video_path, fps=4)
+#image_clips.write_videofile(output_video_path, fps=4)
 
 # 'compose' causing issue?
 #concat_clip = moviepy.editor.concatenate_videoclips(clips, method='compose')
