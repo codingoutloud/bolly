@@ -48,12 +48,12 @@ for media_file in media_files:
         print('Skipping file %s' % media_file)
 
 print('ABOUT TO CONCAT IMAGES')
-print('CLIPS =  ')
+print('CLIPS COUNT = %d' % len(clips))
 
 #concat_clip = moviepy.editor.concatenate_videoclips(clips, method='compose')
 concat_clip = moviepy.editor.concatenate_videoclips(clips)
 
-print('ABOUT TO WRITE CLIPS')
+print('ABOUT TO WRITE %d CLIPS' % len(clips))
 output_video_path = '%s/uploads/bolly.mp4' % data_root
 concat_clip.write_videofile(output_video_path, fps=24)
 
