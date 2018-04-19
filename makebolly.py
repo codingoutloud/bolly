@@ -47,8 +47,8 @@ for media_file in media_files:
     else:
         print('Skipping file %s' % media_file)
 
-print('ABOUT TO CONCAT IMAGES')
 print('CLIPS COUNT = %d' % len(clips))
+print('ABOUT TO CONCAT IMAGES')
 
 #concat_clip = moviepy.editor.concatenate_videoclips(clips, method='compose')
 concat_clip = moviepy.editor.concatenate_videoclips(clips)
