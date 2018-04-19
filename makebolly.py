@@ -75,8 +75,8 @@ concat_clip.write_videofile(output_video_path, fps=24, verbose=True, preset=ultr
 #   video.write_videofile(file_path,
 #                          verbose=True,
 #                          codec="libx264",
-                          audio_codec='aac',
-                          temp_audiofile='temp-audio.m4a',
-                          remove_temp=True, 
-                          preset="medium",
-                          ffmpeg_params=["-profile:v","baseline", "-level","3.0","-pix_fmt", "yuv420p"])
+#                          audio_codec='aac',
+#                          temp_audiofile='temp-audio.m4a',
+#                          remove_temp=True, 
+#                          preset="medium",
+#                          ffmpeg_params=["-profile:v","baseline", "-level","3.0","-pix_fmt", "yuv420p"])
