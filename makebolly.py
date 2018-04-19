@@ -20,7 +20,7 @@ def get_media(downloads):
     files.sort(key=os.path.getmtime)
     return files
 
-def try_write_videofile(output_video_path):
+def try_write_videofile(image_clips, output_video_path):
     try:
         print('ABOUT TO WRITE %d CLIPS to %s' % (len(clips), output_video_path))
         #concat_clip.write_videofile(output_video_path, fps=24)
@@ -68,7 +68,7 @@ output_video_ext = 'mp4'
 output_video_path = '%s/uploads/bollyimages.%s' % (data_root, output_video_ext)
 try:
     # image_clips = moviepy.editor.ImageSequenceClip(media_files, fps=10)
-    image_clips = moviepy.editor.ImageSequenceClip(data_root, fps=10)
+    image_clips = moviepy.editor.ImageSequenceClip(clips, data_root, fps=12)
     audio = (moviepy.editor.AudioFileClip("/media/audio.mp3")
              .set_duration(image_clips.duration))
     image_clips.audio = audio
