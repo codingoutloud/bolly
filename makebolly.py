@@ -23,7 +23,13 @@ def get_media(downloads):
 def try_write_videofile(output_video_path):
     try:
         print('ABOUT TO WRITE %d CLIPS to %s' % (len(clips), output_video_path))
-        concat_clip.write_videofile(output_video_path, fps=24)
+        #concat_clip.write_videofile(output_video_path, fps=24)
+
+        audio = (moviepy.editor.AudioFileClip("/media/audio.mp3")
+                .set_duration(image_clips.duration))
+        concat_clip.audio = audio
+        concat_clip.write_videofile(output_video_path, fps=4)
+
         print('successfully wrote %s' % output_video_path)
     except Exception as e:
         print('failed in writing %s with error %s' % (output_video_path, str(e)))
