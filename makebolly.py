@@ -50,10 +50,33 @@ for media_file in media_files:
 print('CLIPS COUNT = %d' % len(clips))
 print('ABOUT TO CONCAT IMAGES')
 
+# 'compose' causing issue?
 #concat_clip = moviepy.editor.concatenate_videoclips(clips, method='compose')
 concat_clip = moviepy.editor.concatenate_videoclips(clips)
 
-print('ABOUT TO WRITE %d CLIPS' % len(clips))
-output_video_path = '%s/uploads/bolly.mp4' % data_root
+output_video_ext = 'mp4'
+output_video_path = '%s/uploads/bolly.%s' % (data_root, output_video_ext)
+print('ABOUT TO WRITE %d CLIPS to %s' % (len(clips), output_video_path))
 concat_clip.write_videofile(output_video_path, fps=24)
 
+output_video_ext = 'mov'
+output_video_path = '%s/uploads/bolly.%s' % (data_root, output_video_ext)
+print('ABOUT TO WRITE %d CLIPS to %s' % (len(clips), output_video_path))
+concat_clip.write_videofile(output_video_path, fps=24)
+
+output_video_ext = 'avi'
+output_video_path = '%s/uploads/bolly.%s' % (data_root, output_video_ext)
+print('ABOUT TO WRITE %d CLIPS to %s' % (len(clips), output_video_path))
+#concat_clip.write_videofile(output_video_path, fps=24)
+concat_clip.write_videofile(output_video_path, fps=24, verbose=True, preset=ultrafast)
+
+
+#   file_path=os.path.join(desktop,file)
+#   video.write_videofile(file_path,
+#                          verbose=True,
+#                          codec="libx264",
+                          audio_codec='aac',
+                          temp_audiofile='temp-audio.m4a',
+                          remove_temp=True, 
+                          preset="medium",
+                          ffmpeg_params=["-profile:v","baseline", "-level","3.0","-pix_fmt", "yuv420p"])
