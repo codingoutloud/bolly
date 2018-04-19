@@ -38,7 +38,7 @@ clips = list()
 for media_file in media_files:
     if is_image(media_file):
         print('Processing IMAGE file %s' % media_file)
-        clips.append(moviepy.editor.ImageClip(media_file, duration=2))
+        clips.append(moviepy.editor.ImageClip(media_file, duration=10).set_duration(10))
     elif is_audio(media_file):
         print('Skipping AUDIO file %s' % media_file)
         #audio_clip = AudioFileClip(media_file)
