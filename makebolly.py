@@ -61,7 +61,10 @@ print('ABOUT TO CONCAT IMAGES')
 output_video_ext = 'mp4'
 output_video_path = '%s/uploads/bollyimages.%s' % (data_root, output_video_ext)
 try:
-    image_clips = moviepy.editor.ImageSequenceClip(media_files)
+    image_clips = moviepy.editor.ImageSequenceClip(media_files, fps=10)
+    audio = (movie.editor.AudioFileClip("/media/audio.mp3")
+             .set_duration(image_clips.duration))
+    image_clips.audio = audio
     image_clips.write_videofile(output_video_path, fps=4)
     #image_clips.write_videofile(output_video_path, fps=4)
 except Exception as e:
