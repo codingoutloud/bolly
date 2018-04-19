@@ -26,7 +26,7 @@ if len(sys.argv) > 1:
 else:
     data_root = '/media'
 
-print('* DATA ROOT = %s' % root)
+print('* DATA ROOT = %s' % data_root)
 
 media_files = get_media()
 
@@ -49,9 +49,9 @@ for media_file in media_files:
 
 print('ABOUT TO CONCAT IMAGES')
 print('CLIPS =  ')
-print(dir(clips))
 
-concat_clip = moviepy.editor.concatenate_videoclips(clips, method='compose')
+#concat_clip = moviepy.editor.concatenate_videoclips(clips, method='compose')
+concat_clip = moviepy.editor.concatenate_videoclips(clips)
 
 print('ABOUT TO WRITE CLIPS')
 output_video_path = '%s/uploads/bolly.mp4' % data_root
