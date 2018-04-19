@@ -50,8 +50,8 @@ for media_file in media_files:
 print('CLIPS COUNT = %d' % len(clips))
 print('ABOUT TO CONCAT IMAGES')
 
-concat_clip = moviepy.editor.concatenate_videoclips(clips, method='compose')
-#concat_clip = moviepy.editor.concatenate_videoclips(clips)
+#concat_clip = moviepy.editor.concatenate_videoclips(clips, method='compose')
+concat_clip = moviepy.editor.concatenate_videoclips(clips)
 
 print('ABOUT TO WRITE %d CLIPS' % len(clips))
 output_video_path = '%s/uploads/bolly.mp4' % data_root
