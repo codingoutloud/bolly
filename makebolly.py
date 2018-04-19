@@ -20,6 +20,14 @@ def get_media(downloads):
     files.sort(key=os.path.getmtime)
     return files
 
+def try_write_videofile(output_video_path):
+    try:
+        print('ABOUT TO WRITE %d CLIPS to %s' % (len(clips), output_video_path))
+        concat_clip.write_videofile(output_video_path, fps=24)
+        print('successfully wrote %s' % output_video_path)
+    except Exception as e:
+        print('failed in writing %s with error %s' % (output_video_path, str(e)))
+
 
 if len(sys.argv) > 1:
     data_root = sys.argv[1]
@@ -56,19 +64,17 @@ concat_clip = moviepy.editor.concatenate_videoclips(clips)
 
 output_video_ext = 'mp4'
 output_video_path = '%s/uploads/bolly.%s' % (data_root, output_video_ext)
-print('ABOUT TO WRITE %d CLIPS to %s' % (len(clips), output_video_path))
-concat_clip.write_videofile(output_video_path, fps=24)
+try_write_videofile(output_video_path)
 
 output_video_ext = 'mov'
 output_video_path = '%s/uploads/bolly.%s' % (data_root, output_video_ext)
-print('ABOUT TO WRITE %d CLIPS to %s' % (len(clips), output_video_path))
-concat_clip.write_videofile(output_video_path, fps=24)
+try_write_videofile(output_video_path)
 
 output_video_ext = 'avi'
 output_video_path = '%s/uploads/bolly.%s' % (data_root, output_video_ext)
-print('ABOUT TO WRITE %d CLIPS to %s' % (len(clips), output_video_path))
-#concat_clip.write_videofile(output_video_path, fps=24)
-concat_clip.write_videofile(output_video_path, fps=24, verbose=True, preset=ultrafast)
+try_write_videofile(output_video_path)
+
+#concat_clip.write_videofile(output_video_path, fps=24, verbose=True, preset=ultrafast)
 
 
 #   file_path=os.path.join(desktop,file)
